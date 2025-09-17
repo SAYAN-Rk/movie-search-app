@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Movie Search App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1 class="title">Movie Search</h1>
+      <div class="controls">
+        <form id="searchForm" class="search-bar" aria-label="Movie search form">
+          <input id="searchInput" type="search" placeholder="Search movies (e.g. The Matrix)" aria-label="Search movies" autocomplete="off" />
+          <button id="searchButton" type="submit">Search</button>
+        </form>
+
+        <div class="top-actions">
+          <button id="viewFavoritesBtn" class="chip">❤️ Favorites <span id="favCount" class="fav-count">0</span></button>
+          <button id="clearFavoritesBtn" class="chip subtle">Clear</button>
+        </div>
+      </div>
+
+      <!-- Recent searches / suggestions -->
+      <div id="recentWrap" class="recent-wrap" aria-hidden="true"></div>
+    </header>
+
+    <div id="message" class="message" role="status" aria-live="polite"></div>
+    <section id="results" class="results" aria-live="polite"></section>
+
+    <!-- Pagination -->
+    <nav id="pagination" class="pagination" aria-label="Pagination"></nav>
+
+    <div id="loadMoreWrap" class="load-more-wrap"></div>
+  </main>
+
+  <!-- Loading Spinner -->
+  <div id="spinnerWrap" class="spinner-wrap hidden" aria-hidden="true">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Modal for details -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-panel" role="document">
+      <button id="closeModal" class="modal-close" aria-label="Close details">✕</button>
+      <div id="movieDetails" class="movie-details"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
